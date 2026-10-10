@@ -80,10 +80,7 @@ fun TipTimeLayout() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = stringResource(R.string.tip_amount, tip),
-            style = MaterialTheme.typography.displaySmall
-        )
+
         Text(
             text = stringResource(R.string.calculate_tip),
             modifier = Modifier
@@ -91,7 +88,10 @@ fun TipTimeLayout() {
                 .align(alignment = Alignment.Start)
         )
         EditNumberField(value = amountInput, onValueChange = { amountInput = it }, modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth())
-
+        Text(
+            text = stringResource(R.string.tip_amount, tip),
+            style = MaterialTheme.typography.displaySmall
+        )
         Spacer(modifier = Modifier.height(150.dp))
 
     }
