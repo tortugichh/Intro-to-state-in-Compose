@@ -42,6 +42,9 @@ import androidx.compose.material3.TextField
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,10 +90,10 @@ fun TipTimeLayout() {
 
 @Composable
 fun EditNumberField(modifier: Modifier = Modifier) {
-    var amountInput = mutableStateOf("0")
+    var amountInput by remember { mutableStateOf("") }
     TextField(
-        value = amountInput.value,
-        onValueChange = { amountInput.value = it },
+        value = amountInput,
+        onValueChange = { amountInput = it },
         modifier = modifier
     )
 }
